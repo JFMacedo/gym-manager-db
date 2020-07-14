@@ -1,0 +1,260 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;700&display=swap');
+
+:root {
+  --bg-color1: #1B1C20;
+  --bg-color2: #25262C;
+  --primary-color: #FCFBFF;
+  --hover-color: #48FA76;
+  --spotlight-color: #F7DF1E;
+  --delete-color: #FA4876;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Roboto Condensed', sans-serif;
+  color: var(--primary-color);
+}
+
+html, body {
+  height: 100%;
+  background-color: var(--bg-color1);
+}
+
+a {
+  text-decoration: none;
+}
+
+header {
+  width: 100%;
+  padding: 20px;
+  text-align: center;
+  background-color: var(--bg-color2);
+}
+
+header nav {
+  font-size: 22px;
+}
+
+header nav a {
+  position: relative;
+  transition: 200ms;
+}
+
+header nav a + a {
+  margin-left: 16px;
+}
+
+header nav a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  opacity: 0;
+  transition: 200ms;
+  background-color: var(--hover-color);
+}
+
+header nav a:hover {
+  color: var(--hover-color);
+}
+
+header nav a:hover::after {
+  width: 100%;
+  left: 0;
+  opacity: 1;
+}
+
+header nav a.active {
+  color: var(--hover-color);
+}
+
+#content {
+  width: 100%;
+  max-width: 800px;
+  min-height: 400px;
+  margin: 0 auto;
+}
+
+/*== CARD ==*/
+.card {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  width: 100%;
+  min-height: 400px;
+  margin: 48px 0;
+  animation: up 400ms;
+  box-shadow: 0px 2px 10px -2px #00000077;
+  background-color: var(--bg-color2);
+}
+
+@keyframes up {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/*== Details ==*/
+.details {
+  padding: 30px;
+}
+
+.details h3 {
+  text-transform: uppercase;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.details .item {
+  padding: 16px 0;
+  border-bottom: 1px solid var(--bg-color1);
+}
+
+.details .item:last-child {
+  border: none;
+}
+
+.details .item div:nth-child(1) {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: 0.7px;
+  color: var(--hover-color);
+}
+
+.details .item div:nth-child(2) {
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.details .item div:nth-child(2) span {
+  display: inline-block;
+  margin-right: 4px;
+  padding: 8px 16px;
+  text-transform: uppercase;
+  font-size: 14px;
+  border-radius: 4px;
+  color: var(--bg-color1);
+  border: 2px solid var(--bg-color2);
+  background-color: var(--spotlight-color);
+}
+
+/*== Form ==*/
+input {
+  width: 100%;
+  outline: none;
+  font-size: 18px;
+  font-weight: 700;
+  border: none;
+  background-color: var(--bg-color2);
+}
+
+select {
+  outline: none;
+  font-size: 18px;
+  font-weight: 700;
+  border: none;
+  background-color: var(--bg-color2);
+}
+
+input[type="radio"] {
+  width: initial;
+  margin-right: 4px;
+}
+
+input[type="radio"]:nth-of-type(2) {
+  margin-left: 8px;
+}
+
+input::placeholder {
+  font-size: 16px;
+  font-weight: 400;
+}
+
+input[type=submit],
+a.button {
+  margin-top: 32px;
+  padding: 8px 32px;
+  font-weight: 700;
+  border-radius: 4px;
+  cursor: pointer;
+  color: var(--bg-color1);
+  background-color: var(--hover-color);
+}
+
+a.button {
+  display: block;
+  text-align: center;
+}
+
+#form-delete input[type=submit] {
+  margin-top: 8px;
+  background-color: var(--delete-color);
+}
+
+/*== INDEX ==*/
+.table-container {
+  display: block;
+  padding: 40px;
+}
+
+.table-container table {
+  border-spacing: 0;
+}
+
+.table-container table td {
+  padding: 16px;
+  border-bottom: 1px solid var(--bg-color1);
+}
+
+.table-container table tr:last-child td {
+  border-bottom: none;
+}
+
+.table-container table thead td {
+  font-size: 14px;
+  text-transform: uppercase;
+  color: var(--hover-color);
+  background-color: var(--bg-color1);
+}
+
+.table-container table thead tr td {
+  text-align: left;
+}
+
+.table-container table tbody tr td:first-child {
+  display: grid;
+  grid-template-columns: 64px 1fr;
+  align-items: center;
+}
+
+.table-container table tbody tr td:first-child span {
+  width: 48px;
+  height: 48px;
+  background-position: center;
+  background-size: cover;
+  border-radius: 50%;
+  border: 2px solid var(--primary-color);
+}
+
+.table-container table tbody tr td:last-child a {
+  display: inline-block;
+  margin: 8px 0;
+  padding: 8px 16px;
+  border-radius: 4px;
+  color: var(--bg-color1);
+  background-color: var(--hover-color);
+}
+
+.table-container table thead tr td:last-child,
+.table-container table tbody tr td:last-child {
+  text-align: center;
+  width: 80px;
+}

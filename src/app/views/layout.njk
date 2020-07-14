@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="https://www.srienglish.edu.au/wp-content/uploads/2016/10/Gym-Icon.png" type="image/x-icon">
+  <link rel="stylesheet" href="/css/styles.css">
+  {% block head %}
+    <title>Gym Manager</title>
+  {% endblock %}
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="/instructors">Instrutores</a>
+      <a href="/members">Membros</a>
+    </nav>
+  </header>
+
+  {% block content %}
+  {% endblock %}
+  
+  <script src="/scripts/scripts.js"></script>
+</body>
+</html>

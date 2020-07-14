@@ -1,0 +1,51 @@
+<div class="item">
+  <div>Avatar URL</div>
+  <input type="text" name="avatar_url" placeholder="http://" value="{{ member.avatar_url }}">
+</div><!--item-->
+<div class="item">
+  <div>Nome</div>
+  <input type="text" name="name" value="{{ member.name }}">
+</div><!--item-->
+<div class="item">
+  <div>Email</div>
+  <input type="email" name="email" value="{{ member.email }}">
+</div><!--item-->
+<div class="item">
+  <div>Data de nascimento</div>
+  <input type="date" name="birth" value="{{ member.birth }}">
+</div><!--item-->
+<div class="item">
+  <div>Sexo</div>
+  <input type="radio" name="gender" id="m" value="M"
+    {% if member.gender == "M" %}
+      checked
+    {% endif %}>
+  <label for="m">Masculino</label>
+  <input type="radio" name="gender" id="f" value="F"
+  {% if member.gender == "F" %}
+    checked
+  {% endif %}>
+  <label for="f">Feminino</label>
+</div><!--item-->
+<div class="item">
+  <div>Tipo sanguíneo</div>
+  <select name="blood" id="blood">
+    <option value="A1" {% if member.blood == "A1" %} selected {% endif %}>A+</option>
+    <option value="A0" {% if member.blood == "A0" %} selected {% endif %}>A-</option>
+    <option value="B1" {% if member.blood == "B1" %} selected {% endif %}>B+</option>
+    <option value="B0" {% if member.blood == "B0" %} selected {% endif %}>B-</option>
+    <option value="AB1" {% if member.blood == "AB1" %} selected {% endif %}>AB+</option>
+    <option value="AB0" {% if member.blood == "AB0" %} selected {% endif %}>AB-</option>
+    <option value="O1" {% if member.blood == "O1" %} selected {% endif %}>O+</option>
+    <option value="O0" {% if member.blood == "O0" %} selected {% endif %}>O-</option>
+  </select>
+</div><!--item-->
+<div class="item">
+  <div>Peso (kg)</div>
+  <input type="number" name="weight" value="{{ member.weight }}">
+</div><!--item-->
+<div class="item">
+  <div>Altura (cm)</div>
+  <input type="number" name="height" value="{{ member.height }}">
+</div><!--item-->
+<input type="submit" value="Salvar">

@@ -1,0 +1,47 @@
+{% extends "layout.njk" %}
+
+{% block head %}
+  <title>Gym Manager - Membroes</title>
+{% endblock %}
+
+{% block content %}
+  <div id="content">
+    <div class="card">
+      <section class="avatar" style="background: url({{ member.avatar_url }}) no-repeat center center / cover;">
+      </section><!--avatar-->
+      <section class="details">
+        <h3>Detalhes</h3>
+        <div class="item">
+          <div>Membro</div>
+          <div>{{ member.name }}</div>
+        </div><!--item-->
+        <div class="item">
+          <div>Idade</div>
+          <div>{{ member.age }}</div>
+        </div><!--item-->
+        <div class="item">
+          <div>Aniversário</div>
+          <div>{{ member.birth }}</div>
+        </div><!--item-->
+        <div class="item">
+          <div>Sexo</div>
+          <div>{{ "Masculino" if member.gender == "M" else "Feminino" }}</div>
+        </div><!--item-->
+        <div class="item">
+          <div>Tipo sanguíneo</div>
+          <div>{{ member.blood }}</div>
+        </div><!--item-->
+        <div class="item">
+          <div>Peso (kg)</div>
+          <div>{{ member.weight }}</div>
+        </div><!--item-->
+        <div class="item">
+          <div>Altura (cm)</div>
+          <div>{{ member.height }}</div>
+        </div><!--item-->
+
+        <a href="/members/{{ member.id }}/edit" class="button">Editar</a>
+      </section><!--details-->
+    </div><!--card-->
+  </div><!--page-members-->
+{% endblock %}

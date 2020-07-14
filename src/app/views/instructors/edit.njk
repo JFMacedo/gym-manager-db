@@ -1,0 +1,29 @@
+{% extends "layout.njk" %}
+
+{% block head %}
+  <title>Gym Manager - Novo Instrutor</title>
+{% endblock %}
+
+{% block content %}
+  <div id="content">
+    <div class="card">
+      <section
+        class="avatar"
+        style="background: url({{ instructor.avatar_url }}) no-repeat center center / cover;"
+      ></section><!--avatar-->
+      <section class="details">
+        <form method="POST" action="/instructors?_method=PUT">
+          <h3>Editar Instrutor</h3>
+          {% include "instructors/fields.njk" %}
+          <input type="hidden" name="id" value="{{ instructor.id }}">
+        </form><!--post-put-->
+        <form method="POST" action="/instructors?_method=DELETE" id="form-delete">
+          <input type="hidden" name="id" value="{{ instructor.id }}">
+          <input type="submit" value="Excluir">
+        </form><!--delete-->
+      </section><!--details-->
+    </div><!--card-->
+  </div><!--page-instructors-->
+  
+  <script src="/scripts/confirm.js"></script>
+{% endblock %}
