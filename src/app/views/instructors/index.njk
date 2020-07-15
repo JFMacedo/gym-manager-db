@@ -12,6 +12,7 @@
           <tr>
             <td>Instrutor</td>
             <td>Atendimentos</td>
+            <td>Alunos</td>
             <td>Ação</td>
           </tr>
         </thead>
@@ -22,10 +23,12 @@
               {{ instructor.name }}
             </td>
             <td>{{ instructor.services }}</td>
+            <td>{{ instructor.total_studants }}</td>
             <td><a href="/instructors/{{ instructor.id }}">Ver</a></td>
           </tr>
         {% endfor %}
         <tr>
+          <td></td>
           <td></td>
           <td></td>
           <td><a href="/instructors/create">+</a></td>
