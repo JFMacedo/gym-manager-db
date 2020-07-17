@@ -49,6 +49,20 @@ module.exports = {
       callback(results.rows[0]);
     });
   },
+  findBy(filter, callback) {
+    db.query(`
+      SELECT instructors.*, count(members) AS total_studants
+      FROM instructors
+      LEFT JOIN members ON (instructors.id = members.instructor_id)
+      WHERE instructors.name ILIKE '%${filter}%'
+      OR instructors.services ILIKE '%${filter}%'
+      GROUP BY instructors.id
+      ORDER BY total_studants DESC`, (err, results) => {
+      if(err) throw `Erro na base de dados! ${err}`;
+
+      callback(results.rows);
+    });
+  },
   update(data, callback) {
     const query = `
     UPDATE instructors SET

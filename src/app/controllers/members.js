@@ -3,12 +3,22 @@ const { age, date } = require("../../lib/utils");
 
 module.exports = {
   index(req, res) {
-    Member.all((members) => {
-      return res.render("members/index", { members });
-    })
+    const { filter } = req.query;
+
+    if(filter) {
+      Member.findBy(filter, (members) => {
+        return res.render("members/index", { members, filter });
+      });
+    } else {
+      Member.all((members) => {
+        return res.render("members/index", { members });
+      });
+    };
   },
   create(req, res) {
-    return res.render("members/create");
+    Member.instructorsSelectOptions((options) => {
+      return res.render("members/create", { instructorOptions: options });
+    });
   },
   post(req, res) {
     const keys = Object.keys(req.body);
@@ -38,8 +48,10 @@ module.exports = {
       if(!member) return res.send("Instrutor não encontrado!");
 
       member.birth = date(member.birth).iso;
-
-      return res.render("members/edit", { member });
+      
+      Member.instructorsSelectOptions((options) => {
+        return res.render("members/edit", { member, instructorOptions: options });
+      });
     });
   },
   put(req, res) {

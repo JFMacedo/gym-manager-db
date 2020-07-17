@@ -181,7 +181,7 @@ input::placeholder {
 input[type=submit],
 a.button {
   margin-top: 32px;
-  padding: 8px 32px;
+  padding: 8px 16px;
   font-weight: 700;
   border-radius: 4px;
   cursor: pointer;
@@ -200,6 +200,35 @@ a.button {
 }
 
 /*== INDEX ==*/
+.header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 32px;
+}
+
+.header form {
+  display: grid;
+  grid-template-columns: 1fr 80px;
+  gap: 24px;
+}
+
+.header a.button,
+.header form input[type="submit"] {
+  margin-top: 0;
+  padding: 8px 16px;
+  font-weight: 400;
+  border-radius: 4px;
+  color: var(--bg-color1);
+  background-color: var(--hover-color);
+}
+
+.header form input[type="text"] {
+  padding-left: 8px;
+  border-radius: 4px;
+  border: 1px solid var(--hover-color);
+  background-color: var(--bg-color1);
+}
+
 .table-container {
   display: block;
   padding: 40px;
@@ -246,7 +275,6 @@ a.button {
 
 .table-container table tbody tr td:last-child a {
   display: inline-block;
-  margin: 8px 0;
   padding: 8px 16px;
   border-radius: 4px;
   color: var(--bg-color1);
@@ -256,5 +284,4 @@ a.button {
 .table-container table thead tr td:last-child,
 .table-container table tbody tr td:last-child {
   text-align: center;
-  width: 80px;
 }
