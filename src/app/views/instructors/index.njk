@@ -23,18 +23,25 @@
             <td>Ação</td>
           </tr>
         </thead>
-        {% for instructor in instructors %}
-          <tr>
-            <td>
-              <span style="background-image: url({{ instructor.avatar_url }})"></span>
-              {{ instructor.name }}
-            </td>
-            <td>{{ instructor.services }}</td>
-            <td>{{ instructor.total_studants }}</td>
-            <td><a href="/instructors/{{ instructor.id }}">Ver</a></td>
-          </tr>
-        {% endfor %}
+        <tbody>
+          {% for instructor in instructors %}
+            <tr>
+              <td>
+                <span style="background-image: url({{ instructor.avatar_url }})"></span>
+                {{ instructor.name }}
+              </td>
+              <td>{{ instructor.services }}</td>
+              <td>{{ instructor.total_students }}</td>
+              <td><a href="/instructors/{{ instructor.id }}">Ver</a></td>
+            </tr>
+          {% endfor %}
+        </tbody>
       </table>
+      <div class="pagination"
+           data-page="{{ pagination.page }}"
+           data-total="{{ pagination.total }}"
+           data-filter="{{ filter }}">
+      </div>
     </div><!--card-->
   </div><!--page-instructors-->
 {% endblock %}

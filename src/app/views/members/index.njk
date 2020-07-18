@@ -23,18 +23,25 @@
             <td>Ação</td>
           </tr>
         </thead>
-        {% for member in members %}
-          <tr>
-            <td>
-              <span style="background-image: url({{ member.avatar_url }})"></span>
-              {{ member.name }}
-            </td>
-            <td>{{ member.height }}cm</td>
-            <td>{{ member.weight }}kg</td>
-            <td><a href="/members/{{ member.id }}">Ver</a></td>
-          </tr>
-        {% endfor %}
+        <tbody>
+          {% for member in members %}
+            <tr>
+              <td>
+                <span style="background-image: url({{ member.avatar_url }})"></span>
+                {{ member.name }}
+              </td>
+              <td>{{ member.height }}cm</td>
+              <td>{{ member.weight }}kg</td>
+              <td><a href="/members/{{ member.id }}">Ver</a></td>
+            </tr>
+          {% endfor %}
+        </tbody>
       </table>
+      <div class="pagination"
+           data-page="{{ pagination.page }}"
+           data-total="{{ pagination.total }}"
+           data-filter="{{ filter }}">
+      </div>
     </div><!--card-->
   </div><!--page-instructors-->
 {% endblock %}

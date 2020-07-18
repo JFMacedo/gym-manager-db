@@ -285,3 +285,24 @@ a.button {
 .table-container table tbody tr td:last-child {
   text-align: center;
 }
+
+/*== PAGINATION ==*/
+.table-container {
+  display: grid;
+  grid-template: 64px 1fr 16px / 1fr;
+}
+
+.table-container .pagination {
+  align-self: end;
+  justify-self: center;
+}
+
+.table-container .pagination a,
+.table-container .pagination span {
+  margin: 0 4px;
+  padding: 0 4px;
+}
+
+.table-container .pagination a:hover {
+  color: var(--hover-color);
+}

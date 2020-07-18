@@ -14,21 +14,17 @@ module.exports = {
       page,
       limit,
       offset,
-      callback(instructor) {
-        
+      callback(instructors) {
+        const pagination = {
+          total: Math.ceil(instructors[0].total / limit),
+          page
+        };
+
+        return res.render("instructors/index", { instructors, pagination, filter });
       }
     };
 
-    Instructor.paginate(params, );
-    // if(filter) {
-    //   Instructor.findBy(filter, (instructors) => {
-    //     return res.render("instructors/index", { instructors, filter });
-    //   })
-    // } else {
-    //   Instructor.all((instructors) => {
-    //     return res.render("instructors/index", { instructors });
-    //   })
-    // }
+    Instructor.paginate(params);
 
   },
   create(req, res) {
@@ -84,4 +80,4 @@ module.exports = {
       return res.redirect(`instructors`)
     });
   }
-}
+};
